@@ -8,22 +8,22 @@ public class BigRectLister
     public static void main(String[] args)
     {
         //declarations
-        ArrayList <Rectangle> rectangles = new ArrayList<>();
+        ArrayList <BigRectFilter> rectangles = new ArrayList<>();
 
 
         //set test examples for the array list with perimeter > 10
-        Rectangle recOne = new Rectangle(5,2); //p=14
-        Rectangle recTwo = new Rectangle(10,5); //p=30
-        Rectangle recThree = new Rectangle(7,2); //p=18
-        Rectangle recFour = new Rectangle(9,9); //p=36
-        Rectangle recFive = new Rectangle(10,10); // p=40
+        BigRectFilter recOne = new BigRectFilter(5,2); //p=14
+        BigRectFilter recTwo = new BigRectFilter(10,5); //p=30
+        BigRectFilter recThree = new BigRectFilter(7,2); //p=18
+        BigRectFilter recFour = new BigRectFilter(9,9); //p=36
+        BigRectFilter recFive = new BigRectFilter(10,10); // p=40
 
         //set test examples for array list with perimeter <= 10
-        Rectangle recSix = new Rectangle(3,1); //p=8
-        Rectangle recSeven = new Rectangle(2,2); //p=8
-        Rectangle recEight = new Rectangle(1,2); //p=6
-        Rectangle recNine = new Rectangle(3,2); //p=10
-        Rectangle recTen = new Rectangle(1,1); //p=4
+        BigRectFilter recSix = new BigRectFilter(3,1); //p=8
+        BigRectFilter recSeven = new BigRectFilter(2,2); //p=8
+        BigRectFilter recEight = new BigRectFilter(1,2); //p=6
+        BigRectFilter recNine = new BigRectFilter(3,2); //p=10
+        BigRectFilter recTen = new BigRectFilter(1,1); //p=4
 
         //add all examples to the arraylist
         rectangles.add(recOne);
@@ -37,14 +37,30 @@ public class BigRectLister
         rectangles.add(recNine);
         rectangles.add(recTen);
 
-        //outputs the array list of Rectangle Objects
-        for (Rectangle r: rectangles)
+        //outputs the array list of Rectangle Objects before going to BigRectFilter
+        System.out.println();
+        System.out.println("All rectangles in the ArrayList");
+
+        for(BigRectFilter r: rectangles)
         {
             System.out.println(r);
         }
 
-        //goes to check of perimeter is greater than 10
 
+        //outputs the list of rectangles that have a perimeter bigger than 10
+        System.out.println();
+
+        System.out.println("Big Perimeter Rectangles");
+
+        for(BigRectFilter newR : rectangles)
+        {
+            if (newR.accept(newR) == true)
+            {
+                System.out.println(newR);
+            }
+
+
+        }
 
 
     }

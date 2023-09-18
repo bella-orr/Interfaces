@@ -31,6 +31,7 @@ public class ShortLister
                 {
                     rec = reader.readLine();
 
+
                 }
                 reader.close(); // must close the file to seal it and flush buffer
                 System.out.println("\n\nData file read!");
