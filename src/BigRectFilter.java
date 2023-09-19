@@ -45,4 +45,15 @@ public class BigRectFilter implements Filter
 
         return false;
     }
+
+    public double getPerimeter()
+    {
+        //declarations
+        double perimeter;
+
+        //get the perimeter of the rectangle object
+        perimeter = 2*(this.width+this.height);
+
+        return perimeter;
+    }
 }

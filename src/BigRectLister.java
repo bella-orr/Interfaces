@@ -43,7 +43,8 @@ public class BigRectLister
 
         for(BigRectFilter r: rectangles)
         {
-            System.out.println(r);
+
+            System.out.println(r + " The perimeter is: " + r.getPerimeter());
         }
 
 
@@ -56,11 +57,27 @@ public class BigRectLister
         {
             if (newR.accept(newR) == true)
             {
-                System.out.println(newR);
+                System.out.println(newR + " The perimeter is: " + newR.getPerimeter());
             }
 
 
         }
+
+        System.out.println();
+        System.out.println("Small Perimeter Rectangles");
+
+        for(BigRectFilter newR : rectangles)
+        {
+            if (newR.accept(newR) == false)
+            {
+                System.out.println(newR + " The perimeter is: " + newR.getPerimeter());
+            }
+
+
+        }
+
+
+
 
 
     }

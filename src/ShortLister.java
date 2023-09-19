@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 
@@ -12,7 +13,8 @@ public class ShortLister
     {
         JFileChooser chooser = new JFileChooser();
         File selectedFile;
-        String rec = "";
+        String lines;
+
 
         try
         {
@@ -26,10 +28,31 @@ public class ShortLister
                 BufferedReader reader =
                         new BufferedReader(new InputStreamReader(in));
 
-                int line = 0;
+
                 while(reader.ready())
-                {
-                    rec = reader.readLine();
+                {//reads each line of the text file
+                   lines = reader.readLine();
+
+                   System.out.println("This is the text file before ShortWordFilter is applied");
+                   System.out.println(lines);
+
+                    //splits each word into an array at the space
+                    String [] words = lines.split(" ");
+
+                    //calls ShortWordFilter
+                    ShortWordFilter shortWordFilter = new ShortWordFilter();
+
+                    System.out.println();
+                    System.out.println("Strings < 5"); //header
+
+                    for ( int i =0 ; i< words.length ;i++ )
+                    {
+                       if( shortWordFilter.accept(words[i]) == true )
+                       {
+                           System.out.print(words[i] + ", ");
+                       }
+
+                    }
 
 
                 }
